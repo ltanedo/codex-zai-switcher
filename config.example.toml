@@ -1,0 +1,33 @@
+# =====================================================================
+# Example Codex Desktop Configuration (config.toml)
+# Located at: %USERPROFILE%\.codex\config.toml
+# =====================================================================
+
+# Active model selection (Toggled automatically by CodexSwitcherTray)
+model_provider = "ZAI"
+model = "glm-5.3-flash"
+model_reasoning_effort = "high"
+model_catalog_json = "~/.codex/models.json"
+
+# Notification hook (optional, created by Codex desktop app)
+# notify = [ "...", "turn-ended" ]
+
+# ---------------------------------------------------------------------
+# Z.AI Model Provider Definition
+# ---------------------------------------------------------------------
+# NOTE: base_url points to the local proxy (http://127.0.0.1:8787/api/v1)
+# which intercepts remote iPhone/mobile requests, rewrites model identifiers
+# (e.g. gpt-5.6-sol -> glm-5.3-flash), and streams to https://api.z.ai.
+# ---------------------------------------------------------------------
+[model_providers.ZAI]
+name = "ZAI"
+base_url = "http://127.0.0.1:8787/api/v1"
+experimental_bearer_token = "<YOUR_ZAI_API_KEY>"
+wire_api = "responses"
+
+# ---------------------------------------------------------------------
+# Preserve your existing marketplaces and plugins below
+# ---------------------------------------------------------------------
+# [marketplaces.openai-bundled]
+# source_type = "local"
+# source = '...'

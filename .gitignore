@@ -1,0 +1,10 @@
+# Build output
+*.log
+*.bak
+*.tmp
+*.suo
+*.user
+[Bb]in/
+[Oo]bj/
+.vs/
+CodexSwitcherTray.exe
