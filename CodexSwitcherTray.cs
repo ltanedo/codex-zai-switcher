@@ -356,6 +356,8 @@ namespace CodexSwitcher
             }
             else
             {
+                // In official ChatGPT mode, omit model_catalog_json so Codex Desktop
+                // restores its native, official OpenAI model catalog and dropdown.
                 sb.AppendLine("model = \"gpt-6-astra\"");
                 sb.AppendLine("model_reasoning_effort = \"high\"");
                 sb.AppendLine("service_tier = \"priority\"");

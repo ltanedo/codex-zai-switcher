@@ -13,6 +13,7 @@ A native, ultra-lightweight Windows System Tray application for **OpenAI Codex D
   * 🟣 **Purple "Z" Icon**: Z.AI is active.
   * 🟢 **Green "C" Icon**: Official ChatGPT is active.
   * The currently active provider is automatically grayed out in the menu.
+* **🎯 Native Model Catalog Restoration**: When switching to Z.AI, dynamically injects `model_catalog_json` to load GLM models. When switching back to ChatGPT, automatically omits `model_catalog_json` so Codex Desktop restores the official OpenAI models and reasoning options.
 * **🔄 Seamless Process Management**: Cleanly closes and restarts Codex Desktop (`ChatGPT.exe`) on every provider switch so configuration changes take effect immediately.
 * **🛡️ Credential Safety**: Reads your existing configuration in `%USERPROFILE%\.codex\config.toml` and preserves all plugins, marketplaces, and MCP servers without altering your tokens.
 
@@ -65,7 +66,7 @@ experimental_bearer_token = "<YOUR_ZAI_API_KEY>"
 wire_api = "responses"
 ```
 
-> **Tip:** Keep the `[model_providers.ZAI]` section permanently defined in `config.toml`. When you switch to ChatGPT mode, the switcher only modifies the top-level keys (`model = "gpt-6-astra"`). This ensures historical Z.AI chat threads never crash with *"Model provider ZAI not found"*.
+> **Tip:** Keep the `[model_providers.ZAI]` section permanently defined in `config.toml`. When you switch to ChatGPT mode, the switcher removes `model_provider` and `model_catalog_json` from the top-level keys while preserving the `[model_providers.ZAI]` block. This ensures historical Z.AI chat threads never crash with *"Model provider ZAI not found"*, while restoring the official OpenAI model catalog for new and active chats.
 
 ### 3. Build & Run
 To compile the standalone `.exe` using Windows' built-in C# compiler:
