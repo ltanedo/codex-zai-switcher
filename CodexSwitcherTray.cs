@@ -359,7 +359,6 @@ namespace CodexSwitcher
                 sb.AppendLine("model = \"gpt-6-astra\"");
                 sb.AppendLine("model_reasoning_effort = \"high\"");
                 sb.AppendLine("service_tier = \"priority\"");
-                sb.AppendLine("model_catalog_json = \"~/.codex/models.json\"");
                 if (!string.IsNullOrEmpty(notifyLine))
                 {
                     sb.AppendLine(notifyLine);
